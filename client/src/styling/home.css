@@ -1,6 +1,6 @@
-* {
+/* * {
     background: white;
-}
+} */
 .home-page {
     heigt: 87vh;
     display: flex;
@@ -9,6 +9,7 @@
     width: 50%;
     margin: 0 auto;
     text-align: center;
+    /* background: whitesmoke; */
 }
 
 .login-message {
