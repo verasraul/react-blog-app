@@ -24,7 +24,7 @@ function HomePage() {
     <div className="home-page" style={{ display: isSignedIn ? "none" : "" }}>
        {!isSignedIn ? (
         <div className="login-message">
-            <h2>_</h2>
+            <h2>📗</h2>
             <h1> A Readers Favorite Place!</h1>
             <p>
                 We provide high quality online resource for reading blogs. Just sign up and start reading some quality blogs.
