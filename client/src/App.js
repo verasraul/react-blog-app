@@ -5,7 +5,7 @@ import HomePage from './components/shared/HomePage';
 function App() {
   return (
     <div className="App">
-      Hello World
+      <HomePage />
     </div>
   );
 }
