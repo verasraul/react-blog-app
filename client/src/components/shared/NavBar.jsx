@@ -33,8 +33,8 @@ function NavBar() {
   return (
     <div className="navbar">
         <h1 className="navbar-header">BlogSpot 💬</h1>
-        {isSignedIn && ( // if the user is signed (isSignedIn = true) only this block of code will be executed.
-            <div className="blog-search"> {/*search-bar division for blog.*/}
+        {isSignedIn && ( // if the user is signed (isSignedIn = true) then only this block of code will be executed.
+            <div className="blog-search"> {/*search-bar division for blog will take input.*/}
                 <input // the search division takes input.
                 className="search" // CSS classname.
                 placeholder="Search for a blog" // this is a placeholder text for input section.
@@ -48,16 +48,19 @@ function NavBar() {
             </div>
         )}
 
-        {isSignedIn ? (
+        {isSignedIn ? ( // if user is signed in then render/show the 
             <div className="=navbar-user-data">
+                {/* Render profile avatar/picture from user's gmail.  */}
                 <Avatar
-                    className="user"
+                    className="user" // classname for stylesheet.
                     // userData contains the information of the google user signed in.
-                    src={userData?.imageUrl} // this sources profile picture from the google account signed in.
+                    src={userData?.imageUrl} // this sources profile picture from the google account signed in. userData object contains all the data of the gmail user through which they signed in and has an 'imageurl' property.
                     alt={userData?.name} // alternatively if there's no user pic, username will be shown only.
                     // userData values come from the userSlice component.
+                    // the user's data is populated from the GoogleLogin user that the userSlice reducers have accessed and userData is updated using the dispatch (useDispach) function.
                 />
-                <h1 className="signedIn">{userData?.givenName}</h1>
+                <h1 className="signedIn">{userData?.givenName}</h1> 
+
                 <GoogleLogout
                     clientId="927768120339-qcnrjmt9k77hh0ockktg6cfrktcluelk.apps.googleusercontent.com"
                     render={(renderProps) => (

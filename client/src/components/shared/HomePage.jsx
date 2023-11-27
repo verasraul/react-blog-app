@@ -10,7 +10,7 @@ import "../../styling/home.css";
 
 
 function HomePage() {
-    const isSignedIn = useSelector(selectSignedIn);
+    const isSignedIn = useSelector(selectSignedIn); // Call useSelector to get selectSignedIn value from userSlice component.
 
     const dispatch = useDispatch();
     const login = (response) => {
@@ -20,8 +20,8 @@ function HomePage() {
     };
 
 
-  return (
-    <div className="home-page" style={{ display: isSignedIn ? "none" : "" }}>
+  return ( // render home classe with default style isSignedIn. 
+    <div className="home-page" style={{ display: isSignedIn ? "none" : "" }}> {/* if user signed in is true then value is none else is null, isSignedIn gets value from useSelector  */}
        {!isSignedIn ? (
         <div className="login-message">
             <h2>📗</h2>
@@ -30,9 +30,9 @@ function HomePage() {
                 We provide high quality online resource for reading blogs. Just sign up and start reading some quality blogs.
             </p>
             <GoogleLogin
-            clientId="927768120339-qcnrjmt9k77hh0ockktg6cfrktcluelk.apps.googleusercontent.com"
+            clientId="927768120339-qcnrjmt9k77hh0ockktg6cfrktcluelk.apps.googleusercontent.com" 
             render={(renderProps) => (
-                <button
+                <button // button for GoogleLogin Component.
                 onClick={renderProps.onClick}
                 disabled={renderProps.disabled}
                 className="login-button"

@@ -27,14 +27,14 @@ const userSlice = createSlice({
         },
     },
 });
-
+// creating a constant to export reducers.
 export const {
     setSignedIn,
     setUserData,
     setInput,
     setBlogData,
-} = userSlice.actions;
-
+} = userSlice.actions; // all exported reducers are assigned to userSlice.actions, allowing reducers imported in others component to be called by using userSlice.actions.setSignedIn.
+// creating constants to export state values individually.
 export const selectSignedIn = (state) => state.user.isSignedIn;
 export const selectUserData = (state) => state.user.userData;
 export const selectUserInput = (state) => state.user.searchInput;
