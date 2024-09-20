@@ -1,6 +1,6 @@
 import { Avatar } from "@material-ui/core"; // Avatar is a materialUI component.
 import { useState } from "react";
-import { GoogleLogout } from "react-google-login"; // Log-out option.
+import { googleLogout } from '@react-oauth/google'; // Log-out option.
 import { useDispatch, useSelector } from "react-redux";
 import {
     selectSignedIn,
@@ -20,7 +20,8 @@ function NavBar() {
 
     const dispatch = useDispatch(); // using dispatch from react-redux.
 
-    const logout = (response) => { // when users click logout, it will dispatch the reducer function from userSlice.
+    const logout = () => { // when users click logout, it will dispatch the reducer function from userSlice.
+        googleLogout();
         dispatch(setSignedIn(false)); // then it will set the sign-in to false.
         dispatch(setUserData(null)); // and set user data to null (inaccessible).
     };
@@ -61,19 +62,13 @@ function NavBar() {
                 />
                 <h1 className="signedIn">{userData?.givenName}</h1> 
 
-                <GoogleLogout
-                    clientId={`${process.env.REACT_APP_GOOGLE_OAUTH_KEY}`}
-                    render={(renderProps) => (
-                        <button
-                            onClick={renderProps.onClick}
-                            disabled={renderProps.disabled}
-                            className="logout-button"
-                        >
-                            Logout 😦
-                        </button>
-                    )}
-                    onLogoutSuccess={logout}
-                />
+                    <button
+                        onClick={logout}
+                        // disabled={renderProps.disabled}
+                        className="logout-button"
+                    >
+                        Logout 😦
+                    </button>
             </div>
             ) : (
                 <h1 className="notSignedIn">User not available 😞</h1>
