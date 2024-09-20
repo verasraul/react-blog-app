@@ -64,7 +64,6 @@ function NavBar() {
 
                     <button
                         onClick={logout}
-                        // disabled={renderProps.disabled}
                         className="logout-button"
                     >
                         Logout 😦
