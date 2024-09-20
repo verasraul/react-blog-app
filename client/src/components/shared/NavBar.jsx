@@ -62,7 +62,7 @@ function NavBar() {
                 <h1 className="signedIn">{userData?.givenName}</h1> 
 
                 <GoogleLogout
-                    clientId={process.env.REACT_APP_GOOGLE_OAUTH_KEY}
+                    clientId={`${process.env.REACT_APP_GOOGLE_OAUTH_KEY}`}
                     render={(renderProps) => (
                         <button
                             onClick={renderProps.onClick}

@@ -30,7 +30,7 @@ function HomePage() {
                 We provide high quality online resource for reading blogs. Just sign up and start reading some quality blogs.
             </p>
             <GoogleLogin
-            clientId="927768120339-qcnrjmt9k77hh0ockktg6cfrktcluelk.apps.googleusercontent.com" 
+            clientId={`${process.env.REACT_APP_GOOGLE_OAUTH_KEY}`}
             render={(renderProps) => (
                 <button // button for GoogleLogin Component.
                 onClick={renderProps.onClick}
