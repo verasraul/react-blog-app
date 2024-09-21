@@ -14,7 +14,7 @@ import "../../styling/navbar.css"; // import navbar stylesheet to stye component
 
 function NavBar() {
     // HOOKS
-    const [inputValue, setInputValue] = useState("tech"); // useState hook only changes component necessary without refreshing entire page.
+    const [inputValue, setInputValue] = useState(""); // useState hook only changes component necessary without refreshing entire page.
     const isSignedIn = useSelector(selectSignedIn);
     const userData = useSelector(selectUserData);
 
@@ -40,7 +40,7 @@ function NavBar() {
                 className="search" // CSS classname.
                 placeholder="Search for a blog" // this is a placeholder text for input section.
                 value={inputValue} // sets initial input value, set to 'tech'
-                onChange={(e) => setInputValue(e.target.value)} // updates/changes input value for useState hook (setInputValue) from user input. e.target refers to the input element that triggered the event and str.target.value contains the current value of the input.
+                onChange={(event )=> setInputValue(event.target.value)} // updates/changes input value for useState hook (setInputValue) from user input. e.target refers to the input element that triggered the event and str.target.value contains the current value of the input.
                 />
                 {/*Search button*/}
                 <button className="submit" onClick={handleClick}> {/*when user clicks on search that wil call the 'handleClick function*/}
@@ -55,7 +55,7 @@ function NavBar() {
                 <Avatar
                     className="user" // classname for stylesheet.
                     // userData contains the information of the google user signed in.
-                    src={userData?.imageUrl} // this sources profile picture from the google account signed in. userData object contains all the data of the gmail user through which they signed in and has an 'imageurl' property.
+                    src={userData?.picture} // this sources profile picture from the google account signed in. userData object contains all the data of the gmail user through which they signed in and has an 'imageurl' property.
                     alt={userData?.name} // alternatively if there's no user pic, username will be shown only.
                     // userData values come from the userSlice component.
                     // the user's data is populated from the GoogleLogin user that the userSlice reducers have accessed and userData is updated using the dispatch (useDispach) function.

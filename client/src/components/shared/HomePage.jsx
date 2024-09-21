@@ -35,19 +35,18 @@ function HomePage() {
                         We provide high quality online resource for reading blogs. Just sign up and start reading some quality blogs.
                     </p>
                     <GoogleLogin
-                    render={(renderProps) => (
-                        <button // button for GoogleLogin Component.
-                        onClick={renderProps.onClick}
-                        disabled={renderProps.disabled}
-                        className="login-button"
-                        >
-                            Login with Google
-                        </button>
-                    )}
-                    onSuccess={login}
-                    onError={loginFailure}
-                    isSignedIn={true}
-                    cookiePolicy={"single_host_origin"}
+                        onSuccess={login}
+                        onError={loginFailure}
+                        render={(renderProps) => (
+                            <button // button for GoogleLogin Component.
+                            type='icon'
+                            onClick={renderProps.onClick}
+                            disabled={renderProps.disabled}
+                            className="login-button"
+                            >
+                                Login with Google
+                            </button>
+                        )}
                     />
                 </div>
             ) : (
